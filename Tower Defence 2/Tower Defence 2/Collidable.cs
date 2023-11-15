@@ -24,7 +24,7 @@ namespace Tower_Defence_2
 
         public void DrawHitbox(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(Data.towerTexture, hitBox, Color.White);
+            spriteBatch.Draw(Data.hitboxTexture, hitBox, Color.White);
         }
     }
 }

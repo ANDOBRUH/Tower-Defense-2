@@ -10,6 +10,9 @@ namespace Tower_Defence_2
         private SpriteBatch _spriteBatch;
         private GameManager _gameManager;
 
+        Map map;
+        Spawner spawner;
+
 
         public Game1()
         {
@@ -22,9 +25,11 @@ namespace Tower_Defence_2
 
         protected override void Initialize()
         {
-            TileMap.CreateMap(100, 100);
+           
             Data.Content = Content;
             _gameManager = new();
+            map = new Map();   
+            spawner= new Spawner();   
 
             base.Initialize();
         }
@@ -35,11 +40,53 @@ namespace Tower_Defence_2
             Data.SpriteBatch = _spriteBatch;
 
             Data.hitboxTexture = new Texture2D(GraphicsDevice, 1, 1);
-            Data.hitboxTexture.SetData<Color>(new Color[] { Color.Gray * 1f });
+            Data.hitboxTexture.SetData<Color>(new Color[] { Color.Gray * 0.5f });
 
             Data.towerTexture = Content.Load<Texture2D>("Tower");
+            Data.enemyTexture = Content.Load<Texture2D>("RedEnemy");
 
-            Data.gameObjects.Add(new Tile(TileMap.tileSpawnPosition));
+            //1 hitbox
+            Data.gameObjects.Add(new EnemyMovementHitbox(new Vector2(312, 127), new Rectangle(100, 100, 2, 64)));
+            //2 hitbox
+            Data.gameObjects.Add(new EnemyMovementHitbox(new Vector2(256, 573), new Rectangle(100, 100, 64, 2)));
+            //3 hitbox
+            Data.gameObjects.Add(new EnemyMovementHitbox(new Vector2(703, 512), new Rectangle(100, 100, 2, 64)));
+            //4 hitbox
+            Data.gameObjects.Add(new EnemyMovementHitbox(new Vector2(640, 957), new Rectangle(100, 100, 64, 2)));
+            //5 hitbox
+            Data.gameObjects.Add(new EnemyMovementHitbox(new Vector2(958, 897), new Rectangle(100, 100, 2, 64)));
+            //6 hitbox
+            Data.gameObjects.Add(new EnemyMovementHitbox(new Vector2(900, 129), new Rectangle(100, 100, 64, 2)));
+            //7 hitbox
+            Data.gameObjects.Add(new EnemyMovementHitbox(new Vector2(1472, 127), new Rectangle(100, 100, 2, 64)));
+            //8 hitbox
+            Data.gameObjects.Add(new EnemyMovementHitbox(new Vector2(1402, 830), new Rectangle(100, 100, 64, 2)));
+            //9 hitbox
+            Data.gameObjects.Add(new EnemyMovementHitbox(new Vector2(2002, 830), new Rectangle(100, 100, 64, 2)));
+
+            Tile.Content = Content;
+
+            map.Generate(new int[,]
+            {
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1, 1, 1 },
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1, 1, 1 },
+                {0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,0 ,1 ,1 ,1 ,1 ,1, 1, 1 },
+                {1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,0 ,1 ,1 ,1 ,1 ,1, 1, 1 },
+                {1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,0 ,1 ,1 ,1 ,1 ,1, 1, 1 },
+                {1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,0 ,1 ,1 ,1 ,1 ,1, 1, 1 },
+                {1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,0 ,1 ,1 ,1 ,1 ,1, 1, 1 },
+                {1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,0 ,1 ,1 ,1 ,1 ,1, 1, 1 },
+                {1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,0 ,1 ,1 ,1 ,1 ,1, 1, 1 },
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,0 ,1 ,1 ,1 ,1 ,1, 1, 1 },
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,0 ,1 ,1 ,1 ,1 ,1, 1, 1 },
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,0 ,1 ,1 ,1 ,1 ,1, 1, 1 },
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,0 ,0 ,0 ,0 ,0 ,0, 0, 0 },
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1, 1, 1 },
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1, 1, 1 },
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1, 1, 1 },
+                {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1 ,1, 1, 1 },
+
+            }, 64);
         }
 
         protected override void Update(GameTime gt)
@@ -48,14 +95,7 @@ namespace Tower_Defence_2
                 Exit();
 
             CollisionManager.Update();
-
-
-            if (InputManager.MouseClicked)
-            {
-                Data.gameObjects.Add(new Tile(TileMap.tileSpawnPosition));
-                TileMap.tileSpawnPosition.X += 50;
-            }
-
+    
             for (int i = 0; i < Data.gameObjects.Count; i++)
             {
                 Data.gameObjects[i].Update(gt);
@@ -67,6 +107,7 @@ namespace Tower_Defence_2
                     Data.gameObjects.RemoveAt(i);
             }
 
+            spawner.Update();
             _gameManager.Update();
             Data.Update(gt);
 
@@ -75,25 +116,18 @@ namespace Tower_Defence_2
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.SaddleBrown);
 
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.SaddleBrown);
 
             _gameManager.Draw();
 
             _spriteBatch.Begin();
+            map.Draw(_spriteBatch);
+
             for (int i = 0; i < Data.gameObjects.Count; i++)
             {
                 Data.gameObjects[i].Draw(_spriteBatch);
-            }
-
-
-            for (int x = 0; x < TileMap.map.GetLength(0); x++)
-            {
-                for (int y = 0; y < TileMap.map.GetLength(1); y++)
-                {
-                    TileMap.map[x, y].Draw(_spriteBatch);
-                }
             }
 
             _spriteBatch.End();

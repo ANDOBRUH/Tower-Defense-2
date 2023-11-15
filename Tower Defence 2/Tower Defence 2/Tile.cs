@@ -9,25 +9,16 @@ using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using System.IO;
 
 namespace Tower_Defence_2
 {
-    public class Tile : TileMap
-    {
+    class Tile : TileMap
+    { 
         public Tile(int i, Rectangle newRectangle)
         {
-            texture = Content.Load<Texture2D>("Tile" + i);
+            texture = Content.Load<Texture2D>("tile" + i);
             this.Rectangle = newRectangle;
-        }
-
-        public void Update()
-        {
-
-        }
-
-        public override void Draw(SpriteBatch spriteBatch)
-        {
-            spriteBatch.Draw(Data.hitboxTexture, hitBox, Color.White);
         }
     }
 }

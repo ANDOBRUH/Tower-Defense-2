@@ -11,6 +11,7 @@ namespace Tower_Defence_2
     public static class InputManager
     {
         public static MouseState _lastMouseState;
+        public static Vector2 lastMousePosition;
         public static bool MouseClicked { get; private set; }
         public static bool MouseRightClicked { get; private set; }
         public static Rectangle MouseRectangle { get; private set; }
@@ -24,6 +25,8 @@ namespace Tower_Defence_2
             MouseRectangle = new(mouseState.Position.X, mouseState.Position.Y, 1, 1);
 
             _lastMouseState = mouseState;
+            lastMousePosition.X = mouseState.Position.X;
+            lastMousePosition.Y = mouseState.Position.Y;
         }
     }
 }

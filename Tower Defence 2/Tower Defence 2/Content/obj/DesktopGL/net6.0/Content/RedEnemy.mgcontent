@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-  <SourceFile>D:/Spel Project/Tower-Defense-2/Tower Defence 2/Tower Defence 2/Content/Tower.png</SourceFile>
-  <SourceTime>2023-11-15T18:21:30.57951+01:00</SourceTime>
-  <DestFile>D:/Spel Project/Tower-Defense-2/Tower Defence 2/Tower Defence 2/Content/bin/DesktopGL/Content/Tower.xnb</DestFile>
-  <DestTime>2023-11-15T18:24:33.0117758+01:00</DestTime>
+  <SourceFile>D:/Spel Project/Tower-Defense-2/Tower Defence 2/Tower Defence 2/Content/RedEnemy.png</SourceFile>
+  <SourceTime>2023-11-01T16:11:08.5947977+01:00</SourceTime>
+  <DestFile>D:/Spel Project/Tower-Defense-2/Tower Defence 2/Tower Defence 2/Content/bin/DesktopGL/Content/RedEnemy.xnb</DestFile>
+  <DestTime>2023-11-15T19:59:38.9410816+01:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2022-07-26T13:44:56+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
