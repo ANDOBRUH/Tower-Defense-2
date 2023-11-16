@@ -11,8 +11,13 @@ namespace Tower_Defence_2
     public class Tower : Collidable
     {
         public Vector2 rotation;
+        public float rotationVelocity = 3f;
+        public float linearvelocity = 4f;
         public Vector2 direction;
         public Vector2 shootPosition;
+
+        public bool hasTarget = false;
+
         public Tower() 
         {
             texture = Data.towerTexture;
@@ -29,10 +34,37 @@ namespace Tower_Defence_2
             
         }
 
+        public override void CollisionEvent(Collidable other)
+        {
+            if (other is BasicEnemy b)
+            {
+                if (!hasTarget)
+                {
+                    direction = b.position - position;
+
+                    rotation.X = (float)Math.Cos(direction.X);
+                    rotation.Y = (float)Math.Sin(direction.Y);
+
+                    b.isRemoved = true;
+                    hasTarget = true;
+                }
+
+                if (hasTarget && other.isRemoved)
+                {
+                    hasTarget = false;
+                }
+
+                
+
+                
+                //Data.gameObjects.Add(new Bullet(new Vector2(origin.X, 0), direction));
+            }
+        }
+
         public override void Draw(SpriteBatch spriteBatch)
         {
             base.Draw(spriteBatch);
-            spriteBatch.Draw(Data.hitboxTexture, hitBox, Color.White);
+            spriteBatch.Draw(Data.hitboxTexture, hitBox, null, Color.White, rotation, origin, SpriteEffects.None, 0f);
         }
     }
     

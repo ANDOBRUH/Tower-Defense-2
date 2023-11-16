@@ -12,11 +12,11 @@ namespace Tower_Defence_2
 {
     public class BasicEnemy : Movable
     {
-        bool hit = false;
-        bool coolDownStart = false;
-        int hitCount;
-        int coolDown = 12;
-        int health = 100;
+        public bool hit = false;
+        public bool coolDownStart = false;
+        public int hitCount;
+        public int coolDown = 12;
+        public int health = 100;
         public BasicEnemy() 
         {
             position.X = -200;
@@ -43,12 +43,6 @@ namespace Tower_Defence_2
 
         public override void CollisionEvent(Collidable other)
         {
-
-            if (other is Tower)
-            {
-                health -= 10;
-            }
-
             if (other is EnemyMovementHitbox)
             {
                 coolDownStart = true;

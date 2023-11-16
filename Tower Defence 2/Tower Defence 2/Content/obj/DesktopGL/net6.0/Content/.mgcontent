@@ -4,9 +4,9 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/Spel Project/Tower-Defense-2/Tower Defence 2/Tower Defence 2/Content/RedEnemy.png</File>
-    <File>D:/Spel Project/Tower-Defense-2/Tower Defence 2/Tower Defence 2/Content/tile1.png</File>
-    <File>D:/Spel Project/Tower-Defense-2/Tower Defence 2/Tower Defence 2/Content/Tower.png</File>
+    <File>C:/Users/anton.doreste/Documents/GitHub/Tower-Defense-2/Tower Defence 2/Tower Defence 2/Content/RedEnemy.png</File>
+    <File>C:/Users/anton.doreste/Documents/GitHub/Tower-Defense-2/Tower Defence 2/Tower Defence 2/Content/tile1.png</File>
+    <File>C:/Users/anton.doreste/Documents/GitHub/Tower-Defense-2/Tower Defence 2/Tower Defence 2/Content/Tower.png</File>
   </SourceFiles>
   <DestFiles>
     <File xsi:nil="true" />

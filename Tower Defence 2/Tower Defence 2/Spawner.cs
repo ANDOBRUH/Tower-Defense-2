@@ -15,7 +15,7 @@ namespace Tower_Defence_2
 
             if (timer == 60)
             {
-                Data.gameObjects.Add(new BasicEnemy());
+               Data.gameObjects.Add(new BasicEnemy());
                 timer = 0;
             }
 

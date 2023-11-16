@@ -11,7 +11,6 @@ namespace Tower_Defence_2
     {
         public float moveSpeed;
         public Vector2 velocity;
-
         public override void Update(GameTime gameTime)
         {
             Move(gameTime);

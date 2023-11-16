@@ -102,19 +102,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dores\\.nuget\\packages\\": {}
+    "C:\\Users\\anton.doreste\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Spel Project\\Tower-Defense-2\\Tower Defence 2\\Tower Defence 2\\Tower Defence 2.csproj",
+      "projectUniqueName": "C:\\Users\\anton.doreste\\Documents\\GitHub\\Tower-Defense-2\\Tower Defence 2\\Tower Defence 2\\Tower Defence 2.csproj",
       "projectName": "Tower Defence 2",
-      "projectPath": "D:\\Spel Project\\Tower-Defense-2\\Tower Defence 2\\Tower Defence 2\\Tower Defence 2.csproj",
-      "packagesPath": "C:\\Users\\dores\\.nuget\\packages\\",
-      "outputPath": "D:\\Spel Project\\Tower-Defense-2\\Tower Defence 2\\Tower Defence 2\\obj\\",
+      "projectPath": "C:\\Users\\anton.doreste\\Documents\\GitHub\\Tower-Defense-2\\Tower Defence 2\\Tower Defence 2\\Tower Defence 2.csproj",
+      "packagesPath": "C:\\Users\\anton.doreste\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\anton.doreste\\Documents\\GitHub\\Tower-Defense-2\\Tower Defence 2\\Tower Defence 2\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\dores\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\anton.doreste\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -165,8 +170,16 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.201\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Users\\anton.doreste\\Documents\\GitHub\\Tower-Defense-2\\Tower Defence 2\\Tower Defence 2\\obj\\project.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
